@@ -1,4 +1,4 @@
-			data = GetJson();
+/*			data = GetJson();
 			console.log(data['data']);
 			
 			function GetJson()
@@ -1516,3 +1516,4 @@
 }
 return json;
 			}
+*/
