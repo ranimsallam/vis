@@ -1,5 +1,5 @@
-var myDt = " ";
-d3.tsv("dataset/data.tsv", function(error, dataSet) {
+var myDt = "";
+d3.tsv("dataset/data.tsv", function(error, data) {
    myDt = data;
 });
 /*
