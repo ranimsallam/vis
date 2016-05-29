@@ -1,6 +1,5 @@
 d3.tsv("dataset/data.tsv", function(error, data) {
    var arr = data;
-   
 });
 /*
 var parseTime = d3.timeParse("%Y");
