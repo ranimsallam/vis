@@ -26,15 +26,15 @@ var svg = d3.select("body").append("svg")
 var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return "Year:"+d.YEAR + "<br>"+"songs:<br>"+FixString(d.SONGS); });
 function FixString(string)
 {
-  res = string.split(',')
-  console.log(res)
-  var newString = ""
+  res = string.split(',');
+  console.log(res);
+  var newString = "";
   for (i =0; i< res.length; i++)
   {
-    newString += res[i]+"<br>"
+    newString += res[i]+"<br>";
   }
   console.log(newString)
-  return newString
+  return newString;
 }
 
 d3.tsv("dataset/politics.tsv", type, function(error, data) {
