@@ -1,4 +1,12 @@
-text {
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
   font: 10px sans-serif;
 }
 
@@ -9,19 +17,6 @@ text {
   shape-rendering: crispEdges;
 }
 
-.line {
-  fill: none;
-  stroke-width: 1.5px;
-}
-
-.label {
-  text-anchor: middle;
-}
-
-.label rect {
-  fill: white;
-}
-
-.label-key {
-  font-weight: bold;
+.x.axis path {
+  display: none;
 }
