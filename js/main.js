@@ -23,7 +23,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return "Year:"+d.YEAR + "<br>"+"songs:<br>"+FixString(d.SONGS); });
+var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return "Number:"+d.NUMBER + "<br>"+"Artist:<br>"+FixString(d.ARTIST); });
 function FixString(string)
 {
   res = string.split(',');
@@ -37,11 +37,11 @@ function FixString(string)
   return newString;
 }
 
-d3.tsv("dataset/politics.tsv", type, function(error, data) {
+d3.tsv("dataset/ArtistChart.tsv", type, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.YEAR; }));
-  y.domain([0, d3.max(data, function(d) { return d.NUMBER; })]);
+  x.domain(data.map(function(d) { return d.NUMBER; }));
+  y.domain([0, d3.max(data, function(d) { return d.SONGS; })]);
 
   svg.append("g")
         .attr("class", "x axis")
@@ -61,22 +61,22 @@ d3.tsv("dataset/politics.tsv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("NUMBER");
+      .text("SONGS");
 
   svg.call(tip);
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.YEAR); })
+      .attr("x", function(d) { return x(d.NUMBER); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.NUMBER); })
-      .attr("height", function(d) { return height - y(d.NUMBER); })
+      .attr("y", function(d) { return y(d.SONGS); })
+      .attr("height", function(d) { return height - y(d.SONGS); })
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide);
 });
 
 function type(d) {
-  d.NUMBER = +d.NUMBER;
+  d.SONGS = +d.SONGS;
   return d;
 }
