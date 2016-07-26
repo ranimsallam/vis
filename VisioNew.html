@@ -13,6 +13,14 @@ tspan:last-child {
 
 </style>
 <svg width="1200" height="800"></svg>
+<body>
+<p>
+  In this visualization we are trying to show the most important artist and their songs.<br>
+  in each square there is a different group of singers that have the same number of songs in the data.<br>
+  for artist  with 8 songs and above we added their song list.<br>
+  for artist with less then 8 songs, we just gatherd and mention them in the same group.
+</p>
+</body>
 <script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
 <script>
 
@@ -73,5 +81,4 @@ d3.csv("data.csv", function(error, data) {
   cell.append("title")
       .text(function(d) { return d.id + "\n" + format(d.value); });
 });
-
 </script>
